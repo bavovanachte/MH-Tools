@@ -198,6 +198,50 @@ var compScoreTable = {
   "Gilded Leaf":          {"Crazies": 0 , "Gnarlies": 0, "Deepies": 0},
 }
 
+
+var rage_increase_table = {
+  // CC low
+  "Bloomed Sylvan":       {"Crazies": 1 , "Gnarlies": 0, "Deepies": 0}, 
+  "Cranky Caterpillar":   {"Crazies": 1 , "Gnarlies": 0, "Deepies": 0}, 
+  "Mossy Moosker":        {"Crazies": 1 , "Gnarlies": 0, "Deepies": 0}, 
+  // CC mid
+  "Treant Queen":         {"Crazies": 2 , "Gnarlies": 0, "Deepies": 0}, 
+  "Spirit Fox":           {"Crazies": 2 , "Gnarlies": 0, "Deepies": 0}, 
+  "Red-Eyed Watcher Owl": {"Crazies": 2 , "Gnarlies": 0, "Deepies": 0}, 
+  // CC high
+  "Cyclops Barbarian":    {"Crazies": 0 , "Gnarlies": 0, "Deepies": 0},
+  // CC funnel-only
+  "Cherry Sprite":        {"Crazies": 6 , "Gnarlies": 0, "Deepies": 0},
+    
+  // GG low
+  "Spirit of Balance":    {"Crazies": 0 , "Gnarlies": 1, "Deepies": 0}, 
+  "Fungal Frog":          {"Crazies": 0 , "Gnarlies": 1, "Deepies": 0}, 
+  "Karmachameleon":       {"Crazies": 0 , "Gnarlies": 1, "Deepies": 0}, 
+  // GG mid
+  "Red Coat Bear":        {"Crazies": 0 , "Gnarlies": 2, "Deepies": 0},
+  "Rift Tiger":           {"Crazies": 0 , "Gnarlies": 2, "Deepies": 0},
+  "Nomadic Warrior":      {"Crazies": 0 , "Gnarlies": 2, "Deepies": 0},
+  // GG high
+  "Centaur Ranger":       {"Crazies": 0 , "Gnarlies": 0, "Deepies": 0},
+  // GG funnel-only
+  "Naturalist":           {"Crazies": 0 , "Gnarlies": 6, "Deepies": 0},
+
+  // DL low
+  "Twisted Treant":       {"Crazies": 0 , "Gnarlies": 0, "Deepies": 1},
+  "Water Sprite":         {"Crazies": 0 , "Gnarlies": 0, "Deepies": 1},
+  "Crazed Goblin":        {"Crazies": 0 , "Gnarlies": 0, "Deepies": 1},
+  // DL mid
+  "Medicine":             {"Crazies": 0 , "Gnarlies": 0, "Deepies": 2},
+  "Tree Troll":           {"Crazies": 0 , "Gnarlies": 0, "Deepies": 2},
+  "Winged Harpy":         {"Crazies": 0 , "Gnarlies": 0, "Deepies": 2},
+  // DL high
+  "Tri-dra":              {"Crazies": 0 , "Gnarlies": 0, "Deepies": 0},
+  // DL funnel-only
+  "Grizzled Silth":       {"Crazies": 0 , "Gnarlies": 0, "Deepies": 6},
+    
+  "Gilded Leaf":          {"Crazies": 2 , "Gnarlies": 2, "Deepies": 2},
+}
+
 var catchDepth = {
   "Chipper": 16,
   "Frostlance Guard": 15,
