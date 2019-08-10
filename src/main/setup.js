@@ -571,7 +571,7 @@ function buildOverallCR(
   var overallCR = 0;
   var overallProgress = 0;
   var fullRow = {};
-  fullRow["catches"] = [];
+  fullRow["catches"] = [];  
   var i = mpLen;
   while (i--) {
     var mouse = mpKeys[mpLen - i - 1];
@@ -705,7 +705,7 @@ function printCombinations(micePopulation, headerHtml) {
 
   // Sort in place based on greater overall catch rate
   unsortedOverallCR.sort(function(a, b) {
-    return b["cr"] - a["cr"];
+    return b["comp_points"] - a["comp_points"];
   });
 
   // Grab user defined number of rows to pass into tablesorter
