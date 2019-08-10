@@ -263,6 +263,7 @@ function showPop(type) {
       minLuckOverall = 0,
       overallProgress = 0,
       pressureOverall = 0,
+      wwriftCompNormalizedAR = 0,
       crazedRageIncreaseOverall = 0,
       gnarledRageIncreaseOverall = 0,
       deepRageIncreaseOverall =0,
@@ -271,7 +272,6 @@ function showPop(type) {
 
     var headerHTML = getHeaderRow();
     var overallAR = getCheeseAttraction();
-    var wwriftCompNormalizedAR = overallAR; // This will be corrected if some of the uncounted mice are in the list
     var resultsHTML = "<thead>" + headerHTML + "</thead><tbody>";
     var miceNames = Object.keys(popArrayLC || []);
 
@@ -322,6 +322,7 @@ function showPop(type) {
 
         var TP = (catches * tourneyPoints) / 100;
         overallCR += catches;
+        wwriftCompNormalizedAR += catches / 100.0
         overallTP += TP;
         overallGold += gold;
         overallPoints += points;
