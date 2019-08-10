@@ -491,6 +491,7 @@ function showPop() {
       resultsHeader += "<th data-filter='false'>" + mouseName + "</th>";
     }
     resultsHeader += "<th id='overallHeader' data-filter='false'>Overall</th>";
+    resultsHeader += "<th data-filter='false'>Comp points</th>";
     if (rank) {
       resultsHeader +=
         "<th data-filter='false' title='Rank progress per 100 hunts'>Rank</th>";
@@ -565,6 +566,8 @@ function buildOverallCR(
 ) {
   var overallAR = getCheeseAttraction();
   var effArray = buildEffectivenessArray(micePopulation);
+  var wwriftCompNormalizedAR = 0;
+  var compScoreOverall = 0;
   var overallCR = 0;
   var overallProgress = 0;
   var fullRow = {};
@@ -580,6 +583,7 @@ function buildOverallCR(
       powersArray
     );
     overallCR += catches;
+    wwriftCompNormalizedAR += catches / 100.0
     fullRow["catches"].push(catches);
     if (rank) {
       // handle missing data
@@ -587,7 +591,20 @@ function buildOverallCR(
         overallProgress += mouseWisdom[mouse] / rankupDiff[rank] * catches;
       }
     }
+
+    if ((mouse != "Gilded Leaf") &&
+      (mouse != "Grizzled Silth") &&
+      (mouse != "Cherry Sprite") &&
+      (mouse != "Naturalist") &&
+      (mouse != "Monstrous Black Widow"))
+    {
+      var compScore = compScoreTable[mouse][wwriftFaction];
+      compScoreOverall += (compScore * catches) / 100;
+    } else {
+      wwriftCompNormalizedAR -= (catches / 100.0);
+    }
   }
+  fullRow["comp_points"] = compScoreOverall / wwriftCompNormalizedAR;
   fullRow["rank"] = overallProgress;
   fullRow["link"] = getLinkCell(
     selectedCharm,
@@ -706,6 +723,7 @@ function printCombinations(micePopulation, headerHtml) {
         "<td align='center'>" + obj["catches"][j].toFixed(2) + "</td>";
     }
     tableHTML += "<td align='center'>" + obj["cr"].toFixed(2) + "</td>";
+    tableHTML += "<td align='center'>" + obj["comp_points"].toFixed(2) + "</td>";
     if (rank) {
       // numbers are usually 0.00##% per hunt, but per 100 hunts is consistent with values shown
       tableHTML += "<td align='center'>" + (obj["rank"] * 100).toFixed(2) + "%</td>";
