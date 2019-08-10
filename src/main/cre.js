@@ -420,10 +420,10 @@ function showPop(type) {
            {
             var compScore = compScoreTable[mouseName][wwriftFaction];
             mouseRow += "<td>" + compScore + "</td>";
-            compScoreOverall += (compScore * attractions) / 100;
+            compScoreOverall += (compScore * catches) / 100;
           } else {
             mouseRow += "<td>Not counted</td>";
-            wwriftCompNormalizedAR -= (attractions / 100.0);
+            wwriftCompNormalizedAR -= (catches / 100.0);
           }
           var crazedRageIncrease = rage_increase_table[mouseName]["Crazies"];
           var gnarledRageIncrease = rage_increase_table[mouseName]["Gnarlies"];
