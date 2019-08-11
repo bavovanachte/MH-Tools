@@ -563,9 +563,9 @@ function showPop(type) {
     } else if (locationName.indexOf("Whisker Woods Rift") >= 0) {
       var normalizedScore = compScoreOverall / wwriftCompNormalizedAR;
       resultsHTML += "<td>" + normalizedScore.toFixed(2) + "</td>";
-      resultsHTML += "<td>" + crazedRageIncreaseOverall.toFixed(2) + "</td>";
-      resultsHTML += "<td>" + gnarledRageIncreaseOverall.toFixed(2) + "</td>";
-      resultsHTML += "<td>" + deepRageIncreaseOverall.toFixed(2) + "</td>";
+      resultsHTML += "<td>" + (crazedRageIncreaseOverall/wwriftCompNormalizedAR).toFixed(2) + "</td>";
+      resultsHTML += "<td>" + (gnarledRageIncreaseOverall/wwriftCompNormalizedAR).toFixed(2) + "</td>";
+      resultsHTML += "<td>" + (deepRageIncreaseOverall/wwriftCompNormalizedAR).toFixed(2) + "</td>";
     } else if (
       contains(locationName, "Iceberg") &&
       phaseName.indexOf("Lair") < 0
