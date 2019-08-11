@@ -708,6 +708,13 @@ function printCombinations(micePopulation, headerHtml) {
     return b["comp_points"] - a["comp_points"];
   });
 
+  var i = unsortedOverallCR.length
+  while (i--) {
+    if (unsortedOverallCR[i]["cr"] < 25.0 ) { 
+      unsortedOverallCR.splice(i, 1);
+    } 
+  }
+
   // Grab user defined number of rows to pass into tablesorter
   var rowIterations = $("input[name=rowLimit]:checked").val();
   if (rowIterations === "All" || rowIterations > unsortedOverallCR.length) {
