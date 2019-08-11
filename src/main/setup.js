@@ -627,6 +627,8 @@ function buildOverallCR(
 function buildMiceCRCells(micePopulation) {
   var overallCR = 0;
   var overallProgress = 0;
+  var wwriftCompNormalizedAR = 0;
+  var compScoreOverall = 0;
   var overallAR = getCheeseAttraction();
   var effectivenessArray = buildEffectivenessArray(micePopulation);
   var powersArray = buildPowersArray(micePopulation);
@@ -641,6 +643,7 @@ function buildMiceCRCells(micePopulation) {
       powersArray
     );
     overallCR += catches;
+    wwriftCompNormalizedAR += catches / 100.0
     if (rank) {
       // handle missing data
       if (mouseWisdom[mouse]) {
@@ -648,9 +651,21 @@ function buildMiceCRCells(micePopulation) {
       }
     }
     html += "<td align='center'>" + catches.toFixed(2) + "</td>";
+    if ((mouse != "Gilded Leaf") &&
+      (mouse != "Grizzled Silth") &&
+      (mouse != "Cherry Sprite") &&
+      (mouse != "Naturalist") &&
+      (mouse != "Monstrous Black Widow"))
+    {
+      var compScore = compScoreTable[mouse][wwriftFaction];
+      compScoreOverall += (compScore * catches) / 100;
+    } else {
+      wwriftCompNormalizedAR -= (catches / 100.0);
+    }
   }
 
   html += "<td align='center'>" + overallCR.toFixed(2) + "</td>";
+  html += "<td align='center'>" + (compScoreOverall / wwriftCompNormalizedAR).toFixed(2) + "</td>";
   if (rank) {
     // numbers are usually 0.00##% per hunt, but per 100 hunts is consistent with values shown
     html += "<td align='center'>" + (overallProgress * 100).toFixed(2) + "%</td>";
