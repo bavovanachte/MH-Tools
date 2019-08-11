@@ -50,6 +50,7 @@ $(window).load(function() {
   document.getElementById("gs").onchange = gsChanged;
   document.getElementById("bonusPower").onchange = bonusPowerChanged;
   document.getElementById("bonusLuck").onchange = bonusLuckChanged;
+  document.getElementById("minCR").onchange = minCRChanged;
   document.getElementById("ballistaLevel").onchange = genericOnChange;
   document.getElementById("cannonLevel").onchange = genericOnChange;
   document.getElementById("saltLevel").onchange = saltChanged;
@@ -413,6 +414,7 @@ function updateLink() {
     gs: !gsLuck,
     bonusPower: bonusPower,
     bonusLuck: bonusLuck,
+    minCR: minCR,
     riftstalker: riftStalkerCodex,
     ballistaLevel: fortRox.ballistaLevel,
     cannonLevel: fortRox.cannonLevel,
@@ -710,7 +712,7 @@ function printCombinations(micePopulation, headerHtml) {
 
   var i = unsortedOverallCR.length
   while (i--) {
-    if (unsortedOverallCR[i]["cr"] < 25.0 ) { 
+    if (unsortedOverallCR[i]["cr"] < minCR ) { 
       unsortedOverallCR.splice(i, 1);
     } 
   }
@@ -811,6 +813,7 @@ function getCRELinkElement() {
       gs: !gsLuck,
       bonusPower: bonusPower,
       bonusLuck: bonusLuck,
+      minCR: minCR,
       riftstalker: riftStalkerCodex,
       weapon: weaponName,
       base: baseName,

@@ -44,6 +44,8 @@ var gsLuck = 7,
   subtotalPowerBonus = 0,
   tauntBonus = 0;
 
+var minCR = 0;
+
 // Total trap stats
 var trapPower = 0,
   trapLuck = 0,
@@ -638,7 +640,11 @@ function sandCryptsParamCheck() {
 
 function wwriftParamCheck() {
   updateInputFromParameter("wwriftFaction", wwriftChange);
-}
+} 
+
+function minCRCheck() {
+  updateInputFromParameter("minCR", minCRChanged);
+} 
 
 function getRankKey() {
   return "rank-" + user;
@@ -967,6 +973,11 @@ function bonusLuckChanged() {
 
   updateLink();
   calculateTrapSetup();
+}
+
+function minCRChanged() {
+  minCR = document.getElementById("minCR").value;
+  genericOnChange();
 }
 
 function empoweredParamCheck() {
@@ -1464,6 +1475,7 @@ function checkLoadState(type) {
     fortRoxParamCheck();
     sandCryptsParamCheck();
     wwriftParamCheck();
+    minCRCheck();
     rankParamCheck();
     golemParamCheck();
 
